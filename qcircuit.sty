@@ -1,7 +1,5 @@
 %    Q-circuit version 2
-%    Copyright (C) 2004  Steve Flammia & Bryan Eastin
-%    Last modified on: 9/16/2011
-%
+%    Contributors: Steve Flammia, Bryan Eastin, Travis Scholten
 %    This program is free software; you can redistribute it and/or modify
 %    it under the terms of the GNU General Public License as published by
 %    the Free Software Foundation; either version 2 of the License, or
@@ -21,8 +19,23 @@
 % Thanks also to Dave Clader, Andrew Childs, Rafael Possignolo, Tyson Williams,
 % Sergio Boixo, Cris Moore, Jonas Anderson, and Stephan Mertens for helping us test 
 % and/or develop the new version.
+\ProvidesPackage{qcircuit}[2014/06/29]
+\RequirePackage{xy}
 
-\usepackage{xy}
+\DeclareOption{bracket}{
+	\newcommand{\bra}[1]{\ensuremath{\left\langle{#1}\right\vert}}
+	\newcommand{\ket}[1]{\ensuremath{\left\vert{#1}\right\rangle}}
+	}
+
+\DeclareOption{qm}{
+	\newcommand{\ip}[2]{\ensuremath{\left\langle{#1}\right\vert{#2}\rangle}}
+	\newcommand{\melem}[3]{\ensuremath{\left\langle{#1}\right\vert{#2}\vert{#3}\rangle}}
+	\newcommand{\expval}[1]{\ensuremath{\langle #1 \rangle}}
+	\newcommand{\op}[2]{\ensuremath{\vert{#1}\rangle\langle{#2}\vert}}
+	}
+
+\ProcessOptions\relax
+
 \xyoption{matrix}
 \xyoption{frame}
 \xyoption{arrow}
@@ -44,9 +57,6 @@
 % required by Qcircuit.
 \entrymodifiers={!C\entrybox}
 
-\newcommand{\bra}[1]{{\left\langle{#1}\right\vert}}
-\newcommand{\ket}[1]{{\left\vert{#1}\right\rangle}}
-    % Defines Dirac notation. %7/5/07 added extra braces so that the commands will work in subscripts.
 \newcommand{\qw}[1][-1]{\ar @{-} [0,#1]}
     % Defines a wire that connects horizontally.  By default it connects to the object on the left of the current object.
     % WARNING: Wire commands must appear after the gate in any given entry.
@@ -130,3 +140,5 @@
     % Draws a wire or connecting line to the element #1 rows down and #2 columns forward.
 \newcommand{\pureghost}[1]{*+<1em,.9em>{\hphantom{#1}}}
     % Same as \ghost except it omits the wire leading to the left. 
+
+\endinput

@@ -75,6 +75,18 @@ To install qcircuit, place the file \verb=qcircuit.sty= somewhere your \TeX\ dis
 \noindent in the preamble of your document.  \verb=qcircuit.sty= loads the \verb=amsmath= and \verb=xy= packages and implements a set of circuit commands.  If need be, you can obtain the necessary packages at \href{http://www.ctan.org/}{http://www.ctan.org/}.
 
 qcircuit comes with two options - \verb=braket= and \verb=qm= - which provide defined commands for bras, kets, inner and outer products, matrix elements, and expectation values. By default, these options are not enabled, allowing you to define your own commands if you wish. 
+
+\section{Special Commands}
+As mentioned above, qcircuit comes with predefined commands for some commonly used functions. We have chosen to use the ensuremath command, meaning you do not need to put dollar signs around the calls to these commands.
+
+We demonstrate the functions below:\\
+A ket \ket{\frac{A}{B}}\\
+A bra \bra{\frac{A}{B}}\\
+An inner product \ip{\frac{A}{B}}{\frac{C}{D}}\\
+An outer product \op{\frac{A}{B}}{\frac{C}{D}}\\
+A matrix element \melem{j}{\frac{\rho}{\sigma}}{k}\\
+An expectation value \expval{\frac{\Omega}{\gamma}}
+
 \section{Simple Quantum Circuits\label{S:basics}}
 
 To begin, suppose the reader would like to typeset the following 

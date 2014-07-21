@@ -1,20 +1,23 @@
 \documentclass[twocolumn,nofootinbib]{revtex4}
 \usepackage[bookmarks = true, pdfpagemode = None, pdfstartview = FitH, colorlinks = true, urlcolor = blue]{hyperref}
 \usepackage[braket, qm]{qcircuit}
+\usepackage{amsmath}  
+\usepackage{listings}
 \renewcommand{\arraystretch}{1.5}
 
 \begin{document}
+\lstset{language=TeX}
 
 \title{qcircuit Tutorial}
 
 \author{Bryan Eastin, Steven T. Flammia}
 \affiliation{Department of Physics and Astronomy, University of New
-Mexico, Albuquerque, New Mexico 87131--1156, USA}
-
+Mexico, Albuquerque, New Mexico 87131-0001, USA}
+	
 \begin{abstract}qcircuit is a list of macros that greatly simplifies the construction of 
 quantum circuit diagrams (QCDs) in \LaTeX \ with the help of the \Xy-pic 
 package.  This tutorial should help the reader acquire 
-the skill to render arbitrary QCDs in a matter of minutes.  qcircuit is available for free\footnote{The qcircuit package is distributed under the GNU public license.} at \href{http://info.phys.unm.edu/Qcircuit/}{http://info.phys.unm.edu/Qcircuit/}.
+the skill to render arbitrary QCDs in a matter of minutes.  qcircuit is available for free\footnote{The qcircuit package is distributed under the GNU public license.} at \href{https://github.com/CQuIC-GitHub/qcircuit/tree/master}{https://github.com/CQuIC-GitHub/qcircuit/tree/master}.
 \end{abstract}
 
 \maketitle
@@ -77,15 +80,30 @@ To install qcircuit, place the file \verb=qcircuit.sty= somewhere your \TeX\ dis
 qcircuit comes with two options - \verb=braket= and \verb=qm= - which provide defined commands for bras, kets, inner and outer products, matrix elements, and expectation values. By default, these options are not enabled, allowing you to define your own commands if you wish. 
 
 \section{Special Commands}
-As mentioned above, qcircuit comes with predefined commands for some commonly used functions. We have chosen to use the ensuremath command, meaning you do not need to put dollar signs around the calls to these commands.
+As mentioned above, qcircuit comes with predefined commands for some commonly used functions. We have chosen to use the \verb=ensuremath= command, meaning you do not need to put dollar signs around the calls to these commands.
 
-We demonstrate the functions below:\\
-A ket \ket{\frac{A}{B}}\\
-A bra \bra{\frac{A}{B}}\\
-An inner product \ip{\frac{A}{B}}{\frac{C}{D}}\\
-An outer product \op{\frac{A}{B}}{\frac{C}{D}}\\
-A matrix element \melem{j}{\frac{\rho}{\sigma}}{k}\\
-An expectation value \expval{\frac{\Omega}{\gamma}}
+We demonstrate the commands below along with their respective outputs:
+
+\begin{center}
+\begin{tabular}{l c l c}
+\begin{lstlisting}
+\ket{A}
+\end{lstlisting} & \ket{A} & \begin{lstlisting}
+\bra{B}
+\end{lstlisting} & \bra{B}\\
+\begin{lstlisting}
+\ip{A}{B}
+\end{lstlisting} & \ip{A}{B} & \begin{lstlisting}
+\op{A}{B}
+\end{lstlisting} & \op{A}{B}\\
+\begin{lstlisting}
+\melem{j}{B}{k}
+\end{lstlisting} & \melem{j}{B}{k} &
+\begin{lstlisting}
+\expval{B}
+\end{lstlisting} & \expval{B}\\
+\end{tabular}
+\end{center}
 
 \section{Simple Quantum Circuits\label{S:basics}}
 

@@ -1,21 +1,23 @@
 \documentclass[twocolumn,nofootinbib]{revtex4}
 \usepackage[bookmarks = true, pdfpagemode = None, pdfstartview = FitH, colorlinks = true, urlcolor = blue]{hyperref}
-
-\input{Qcircuit.tex}
+\usepackage[braket, qm]{qcircuit}
+\usepackage{amsmath}  
+\usepackage{listings}
 \renewcommand{\arraystretch}{1.5}
 
 \begin{document}
+\lstset{language=TeX}
 
-\title{Q-circuit Tutorial}
+\title{qcircuit 2.0 Tutorial}
 
-\author{Bryan Eastin, Steven T. Flammia}
+\author{Original authors: Bryan Eastin, Steven T. Flammia\\ Edits: Travis L Scholten}
 \affiliation{Department of Physics and Astronomy, University of New
-Mexico, Albuquerque, New Mexico 87131--1156, USA}
-
-\begin{abstract}Q-circuit is a list of macros that greatly simplifies the construction of 
+Mexico, Albuquerque, New Mexico 87131-0001, USA}
+	
+\begin{abstract}qcircuit is a list of macros that greatly simplifies the construction of 
 quantum circuit diagrams (QCDs) in \LaTeX \ with the help of the \Xy-pic 
 package.  This tutorial should help the reader acquire 
-the skill to render arbitrary QCDs in a matter of minutes.  Q-circuit is available for free\footnote{The Q-circuit package is distributed under the GNU public license.} at \href{http://info.phys.unm.edu/Qcircuit/}{http://info.phys.unm.edu/Qcircuit/}.
+the skill to render arbitrary QCDs in a matter of minutes. The source code for qcircuit is available for free\footnote{The qcircuit package is distributed under the GNU public license.} at \href{https://github.com/CQuIC-GitHub/qcircuit/tree/master}{https://github.com/CQuIC-GitHub/qcircuit/tree/master}.
 \end{abstract}
 
 \maketitle
@@ -65,18 +67,43 @@ Ever tried to use \LaTeX\ to typeset something like this?
 }
 \]
 
-Typesetting quantum circuit diagrams using standard \LaTeX\ graphics packages is a difficult and time consuming business.  Q-circuit is a high level macro package designed to change that.  With Q-circuit, drawing quantum circuit diagrams is as easy as constructing an array.  In a matter of minutes you can learn the basic syntax and start producing circuits of your own.
+Typesetting quantum circuit diagrams using standard \LaTeX\ graphics packages is a difficult and time consuming business.  qcircuit is a high level macro package designed to change that.  With qcircuit, drawing quantum circuit diagrams is as easy as constructing an array.  In a matter of minutes you can learn the basic syntax and start producing circuits of your own.
 
-This tutorial teaches you to use Q-circuit from the ground up.  Many readers will find that they've learned everything they need to know by the end of \S\ref{S:basics}, but plenty of material is included for those that wish to typeset more complicated circuits.
-
-% Q-circuit is free software*******Insert stuff about the GNU public license here*******.  If you use Q-circuit to render any quantum circuit diagrams in a document available to the public, please acknowledge that Q-circuit was used and, if appropriate, reference the website.  Please email me with suggestions and improvements.
-
+This tutorial teaches you to use qcircuit from the ground up.  Many readers will find that they've learned everything they need to know by the end of \S\ref{S:basics}, but plenty of material is included for those that wish to typeset more complicated circuits.
 
 \section{Getting Started}
 
-To install Q-circuit, place the file \verb=Qcircuit.tex= somewhere your \TeX\ distribution can find it and run the appropriate command to update your \TeX\ tree.  To use it, place the command
-{\small \begin{verbatim}\input{Qcircuit}\end{verbatim}}
-\noindent in the preamble of your document.  \verb=Qcircuit.tex= loads the \verb=amsmath= and \verb=xy= packages and implements a set of circuit commands.  If need be, you can obtain the necessary packages at \href{http://www.ctan.org/}{http://www.ctan.org/}.
+To install qcircuit, place the file \verb=qcircuit.sty= somewhere your \TeX\ distribution can find it and run the appropriate command to update your \TeX\ tree.  To use it, place the command
+{\small \begin{verbatim}\usepackage[options]{qcircuit}\end{verbatim}}
+\noindent in the preamble of your document.  \verb=qcircuit.sty= loads the \verb=amsmath= and \verb=xy= packages and implements a set of circuit commands.  If need be, you can obtain the necessary packages at \href{http://www.ctan.org/}{http://www.ctan.org/}.
+
+qcircuit comes with two options - \verb=braket= and \verb=qm= - which provide defined commands for bras, kets, inner and outer products, matrix elements, and expectation values. By default, these options are not enabled, allowing you to define your own commands if you wish. 
+
+\section{Special Commands}
+As mentioned above, qcircuit comes with predefined commands for some commonly used functions. We have chosen to use the \verb=ensuremath= command, meaning you do not need to put dollar signs around the calls to these commands.
+
+We demonstrate the commands below along with their respective outputs:
+
+\begin{center}
+\begin{tabular}{l c l c}
+\begin{lstlisting}
+\ket{A}
+\end{lstlisting} & \ket{A} & \begin{lstlisting}
+\bra{B}
+\end{lstlisting} & \bra{B}\\
+\begin{lstlisting}
+\ip{A}{B}
+\end{lstlisting} & \ip{A}{B} & \begin{lstlisting}
+\op{A}{B}
+\end{lstlisting} & \op{A}{B}\\
+\begin{lstlisting}
+\melem{j}{B}{k}
+\end{lstlisting} & \melem{j}{B}{k} &
+\begin{lstlisting}
+\expval{B}
+\end{lstlisting} & \expval{B}\\
+\end{tabular}
+\end{center}
 
 \section{Simple Quantum Circuits\label{S:basics}}
 

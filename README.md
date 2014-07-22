@@ -1,7 +1,7 @@
-qcircuit - Development Branch
-==================================
+qcircuit
+===============
 
-A quantum circuit drawing application. This branch is more experimental than the `master` branch, and so some of the features contained herein may be buggy.
+A quantum circuit drawing application.
 
 The original website for this project may be found on the [qcircuit page](http://physics.unm.edu/CQuIC/Qcircuit/) through the Center for Quantum Information and Control.
 

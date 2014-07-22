@@ -3,13 +3,9 @@ qcircuit
 
 A quantum circuit drawing application.
 
-The original website for this project may be found on the [qcircuit page](http://physics.unm.edu/CQuIC/Qcircuit/) through the Center for Quantum Information and Control.
+The original website for this project may be found on the [qcircuit page](http://physics.unm.edu/CQuIC/Qcircuit/) through the Center for Quantum Information and Control. We use the GitHub [wiki](https://github.com/CQuIC-GitHub/qcircuit/wiki) pages to make more information about qcircuit available.
 
-We welcome others to fork our project and include enhancements. See the issues list for requested updates and features.
-
-History
-=========
-qcircuit was worked on by Steve Flammia and Bryan Eastin, and has been successful in helping scientists within the quantum information community typeset quantum circuits. See the original [FAQ](http://physics.unm.edu/CQuIC/Qcircuit/QcircuitFAQ.html) page for descriptions of updates and enhancements.
+We welcome others to fork our project and include enhancements. See the [Issues list](https://github.com/CQuIC-GitHub/qcircuit/issues?state=open) for requested updates and features.
 
 Installation
 ========
@@ -47,7 +43,7 @@ Help
 
 As the installation instructions indicate, qcircuit must be manually inserted into a users' TeX tree. This presents complications insofar as trees may vary in structure and location across different operating systems. We will be working on making qcircuit a LaTeX package hosted on CTAN such that one simply downloads the package with their favorite package manager, and calls `\usepackage[options]{qcircuit}` to enable functionality. In the meantime, one is simply forced to hack one's way into having this functionality.
 
-A general FAQ can be found at [this page](http://physics.unm.edu/CQuIC/Qcircuit/QcircuitFAQ.html).
+A general FAQ can be found [on the wiki](https://github.com/CQuIC-GitHub/qcircuit/wiki/FAQ)
 
 License
 ========

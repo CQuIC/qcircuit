@@ -1,0 +1,30 @@
+% Qcircuit demonstration graphic
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass{amsart}
+
+\usepackage[matrix,frame,arrow]{xypic}
+\input{Qcircuit}
+
+\vfuzz2pt % Don't report over-full v-boxes if over-edge is small
+
+%%% ----------------------------------------------------------------------
+\begin{document}
+\[
+\Qcircuit @C=1.0em @R=.7em {
+& \gate{H} & \ctrlo{3} & \qw & \qw & \qw & \ctrl{5} & \qw & \gate{H} & \multigate{2}{U^\dag} & \qw\\
+\lstick{\begin{array}{r}\alpha\ket{000}\ \ \ \\+\beta\ket{111}\end{array}} 
+& \gate{H} & \qw & \qswap \qwx[2] & \ctrl{3} & \qw & \qw & \qw & \gate{H} & \ghost{U^\dag} \qw & \qw\\
+& \gate{H} & \qw & \qw & \qw & \ctrl{2} & \qw & \ctrl{3} & \gate{H} & \ghost{U^\dag} \qw & \qw\\
+& \lstick{\ket{0}} & \targ & \qswap \qw & \qw & \qw & \qw & \qw & \qw & \measure{answer} \cwx\\
+& \lstick{\ket{1}} & \qw & \qw & \control \qw & \targ & \qw & \qw & \qw & \meter\\
+& \lstick{\ket{0}} & \qw & \qw & \qw \gategroup{6}{3}{6}{5}{1.0em}{_\}} & \qw & \targ & \gate{Y} & \qw & \measuretab{M_{abc}} \gategroup{1}{9}{6}{10}{1em}{--} & \control \cw \cwx[3] \\ 
+& & & & & & \vdots \\
+\\
+& \qw & \qw & \qw & \qw & \qw & \qw & \qw & \qw & \qw & \multigate{2}{\mathcal{F}} & \qw\\
+& \qw & \qw & \qw & {\backslash} \qw & \qw & \qw & \qw & \qw & \qw & \ghost{\mathcal{F}} \qw & \qw\\
+& \qw & \qw & \qw & \qw & \qw & \qw & \qw & \qw & \qw & \ghost{\mathcal{F}} \qw & \qw
+}
+\]
+\end{document}
+% ------------------------------------------------------------------------

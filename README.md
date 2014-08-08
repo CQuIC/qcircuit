@@ -1,5 +1,5 @@
 qcircuit
-===============
+==========
 
 A quantum circuit drawing application.
 
@@ -48,7 +48,6 @@ A simple way to check you successfully installed qcircuit is to download the `Qt
 
 Help
 =======
-
 As the installation instructions indicate, qcircuit must be manually inserted into a users' TeX tree. This presents complications insofar as trees may vary in structure and location across different operating systems. We will be working on making qcircuit a LaTeX package hosted on CTAN such that one simply downloads the package with their favorite package manager, and calls `\usepackage[options]{qcircuit}` to enable functionality. In the meantime, one is simply forced to hack one's way into having this functionality.
 
 A general FAQ can be found [on the wiki](https://github.com/CQuIC-GitHub/qcircuit/wiki/FAQ)

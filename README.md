@@ -13,11 +13,19 @@ Installation
 
 qcircuit depends on the [xy-pic](http://www.tug.org/applications/Xy-pic/) and [ifpdf](http://www.ctan.org/pkg/ifpdf) packages.
 
+**Through a TeX package manager**
+
+qcircuit has been added to the Comprehensive Tex Archive Network (CTAN), and so can be accessed through a package manager for your TeX distribution. The package name is `qcircuit`. Should you be inclined to do so, the source files may be downloaded from [this page](http://ctan.org/pkg/qcircuit), though they contain all the same files available through GitHub.
+
+How to use this manager varies from distribution to distribution; there is a [Wikipedia page](https://en.wikibooks.org/wiki/LaTeX/Installing_Extra_Packages) which describes some of the more common ways to do so. 
+
 **Simple Install**
 
 The simplest way to use qcircuit is to download the file `qcircuit.sty` and put that file in the same folder as the tex document you are compiling. Within the document preamble, use `\usepackage[options]{qcircuit}` to enable TeX to compile the circuit. See the Use section of this README for more information.
 
 **More Complicated (but more helpful) Way**
+
+*Note*: Using a TeX package manager takes care of putting the files in the right places in your TeX tree; we recommend users no longer use the approach below, and instead use the manager.
 
 A slightly more complicated way involves putting qcircuit in your TeX tree so that every time you compile your file TeX sees the `qcircuit.sty` file. This avoids the hassle of copying the file all over the place.
 

@@ -63,14 +63,26 @@
 \newcommand{\qwx}[1][-1]{\ar @{-} [#1,0]}
     % Defines a wire that connects vertically.  By default it connects to the object above the current object.
     % WARNING: Wire commands must appear after the gate in any given entry.
+\newcommand{\qwa}[1][-1]{\ar @{<-} [0,#1]}
+    % Defines a wire that connects horizontally with an arrow.  By default it makes an end wire with an arrow indicating the end of the circuit.
+    % WARNING: Wire commands must appear after the gate in any given entry.
 \newcommand{\cw}[1][-1]{\ar @{=} [0,#1]}
     % Defines a classical wire that connects horizontally.  By default it connects to the object on the left of the current object.
     % WARNING: Wire commands must appear after the gate in any given entry.
 \newcommand{\cwx}[1][-1]{\ar @{=} [#1,0]}
     % Defines a classical wire that connects vertically.  By default it connects to the object above the current object.
     % WARNING: Wire commands must appear after the gate in any given entry.
+\newcommand{\cwa}[1][-1]{\ar @{<=} [0,#1]}
+    % Defines a classical wire that connects horizontally with an arrow.  By default it makes an end wire with an arrow indicating the end of the circuit.
+    % WARNING: Wire commands must appear after the gate in any given entry.
+\newcommand{\cds}[2]{*+<1em,.9em>{\hphantom{#2}} \POS [0,0].[#1,0]="e",!C *{#2};"e"+ R \qw}
+    % Allows the insertion of text without a box and exands circuit around this text.
+    % This is useful for such things as ... to indicate a generalized circuit.
 \newcommand{\gate}[1]{*+<.6em>{#1} \POS ="i","i"+UR;"i"+UL **\dir{-};"i"+DL **\dir{-};"i"+DR **\dir{-};"i"+UR **\dir{-},"i" \qw}
     % Boxes the argument, making a gate.
+\newcommand{\sgate}[2]{\gate{#1}  \qwx[#2]}
+    % Creates a gate and a qwx wire going #2 spots below, for a gate split over
+    % non-adjacent rows
 \newcommand{\meter}{*=<1.8em,1.4em>{\xy ="j","j"-<.778em,.322em>;{"j"+<.778em,-.322em> \ellipse ur,_{}},"j"-<0em,.4em>;p+<.5em,.9em> **\dir{-},"j"+<2.2em,2.2em>*{},"j"-<2.2em,2.2em>*{} \endxy} \POS ="i","i"+UR;"i"+UL **\dir{-};"i"+DL **\dir{-};"i"+DR **\dir{-};"i"+UR **\dir{-},"i" \qw}
     % Inserts a measurement meter.
     % In case you're wondering, the constants .778em and .322em specify
@@ -78,6 +90,17 @@
     % The points added at + and - <2.2em,2.2em> are there to strech the
     % canvas, ensuring that the size is unaffected by erratic spacing issues
     % with the arc.
+\newcommand{\metersymb}{\xy ="j","j"-<.778em,.322em>;{"j"+<.778em,-.322em> \ellipse ur,_{}},"j"-<0em,.4em>;p+<.5em,.9em> **\dir{-},"j"+<2.2em,2.2em>*{},"j"-<2.2em,2.2em>*{} \endxy}
+    % A longer meter
+\newcommand{\meterB}[1]{*=<1.8em,2.6em>{\xy 0;<0em,-.8em>:
+0*{\begingroup
+\everymath{\scriptstyle}
+\tiny #1 \endgroup},<0em,.7em>*{\xy ="j","j"-<.778em,-.322em>;{"j"+<.778em,.322em> \ellipse ur,_{}},"j"-<0em,-.2em>;p+<.5em,.9em> **\dir{-},"j"+<2.2em,2.2em>*{},"j"-<2.2em,2.2em>*{} \endxy} 
+\endxy} \POS ="i","i"+UR;"i"+UL **\dir{-};"i"+DL **\dir{-};"i"+DR **\dir{-};"i"+UR **\dir{-},"i" \qw}
+    % A meter that allows for a measurememnet operator to be added below
+\newcommand{\smeterB}[2]{\meterB{#1} \qwx[#2] \qw}
+    % A split meter that allows for a measurement operator to be split over non-
+    % adjacent rows
 \newcommand{\measure}[1]{*+[F-:<.9em>]{#1} \qw}
     % Inserts a measurement bubble with user defined text.
 \newcommand{\measuretab}[1]{*{\xy*+<.6em>{#1}="e";"e"+UL;"e"+UR **\dir{-};"e"+DR **\dir{-};"e"+DL **\dir{-};"e"+LC-<.5em,0em> **\dir{-};"e"+UL **\dir{-} \endxy} \qw}
@@ -100,6 +123,8 @@
     % Inserts a control and connects it to the object #1 wires below.
 \newcommand{\ctrlo}[1]{\controlo \qwx[#1] \qw}
     % Inserts a control-on-0 and connects it to the object #1 wires below.
+\newcommand{\cctrl}[1]{\control \cwx[#1] \cw}
+    % Inserts a classical control and connects it to the object #1 wires below.     
 \newcommand{\targ}{*+<.02em,.02em>{\xy ="i","i"-<.39em,0em>;"i"+<.39em,0em> **\dir{-}, "i"-<0em,.39em>;"i"+<0em,.39em> **\dir{-},"i"*\xycircle<.4em>{} \endxy} \qw}
     % Inserts a CNOT target.
 \newcommand{\qswap}{*=<0em>{\times} \qw}
@@ -125,7 +150,12 @@
     % dotted boxes respectively, and the last eight options yield bottom, top, left, and right braces of the curly or normal variety.  See the Xy-pic reference manual for more options.
     % \gategroup can appear at the end of any gate entry, but it's good form to pick either the last entry or one of the corner gates.
     % BUG: \gategroup uses the four corner gates to determine the size of the bounding box.  Other gates may stick out of that box.  See \prop.
-
+\newcommand{\inputgroup}[5]{\POS"#1,1"."#2,1"."#1,1"."#2,1"!C*+<#3>\frm{\{}, \POS"#1,1"."#2,1"."#1,1"."#2,1"*!C!<1.7em,#4>=<0em>{#5}}
+    % Constructs an input group with label #5 and a grouping { from rows #1 to #2 with #3 and #4 controlling the spacing
+\newcommand{\inputgroupb}[4]{\POS"#1,1"."#2,1"."#1,1"."#2,1", \POS"#1,1"."#2,1"."#1,1"."#2,1"*!C!<1em,#3>=<0em>{#4}}
+    % Constructs an input group with label #4 from rows #1 to #2 with #3 controlling the spacing
+\newcommand{\inputgroupc}[5]{\POS"#1,1"."#2,1"."#1,1"."#2,1", \POS"#1,1"."#2,1"."#1,1"."#2,1"*!C!<#5,#3>=<0em>{#4}}
+    % Constructs an input group with label #4 and a grouping /vdots from rows #1 to #2 with #3 and #5 controlling the spacing
 \newcommand{\rstick}[1]{*!L!<-.5em,0em>=<0em>{#1}}
     % Centers the left side of #1 in the cell.  Intended for lining up wire labels.  Note that non-gates have default size zero.
 \newcommand{\lstick}[1]{*!R!<.5em,0em>=<0em>{#1}}

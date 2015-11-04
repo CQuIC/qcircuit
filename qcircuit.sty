@@ -23,16 +23,16 @@
 \RequirePackage{xy}
 
 \DeclareOption{braket}{
-	\newcommand{\bra}[1]{\ensuremath{\left\langle{#1}\right\vert}}
-	\newcommand{\ket}[1]{\ensuremath{\left\vert{#1}\right\rangle}}
-	}
+    \newcommand{\bra}[1]{\ensuremath{\left\langle{#1}\right\vert}}
+    \newcommand{\ket}[1]{\ensuremath{\left\vert{#1}\right\rangle}}
+    }
 
 \DeclareOption{qm}{
-	\newcommand{\ip}[2]{\ensuremath{\left\langle{#1}\right\vert{#2}\rangle}}
-	\newcommand{\melem}[3]{\ensuremath{\left\langle{#1}\right\vert{#2}\vert{#3}\rangle}}
-	\newcommand{\expval}[1]{\ensuremath{\left\langle #1 \right\rangle}}
-	\newcommand{\op}[2]{\ensuremath{\vert{#1}\rangle\langle{#2}\vert}}
-	}
+    \newcommand{\ip}[2]{\ensuremath{\left\langle{#1}\right\vert{#2}\rangle}}
+    \newcommand{\melem}[3]{\ensuremath{\left\langle{#1}\right\vert{#2}\vert{#3}\rangle}}
+    \newcommand{\expval}[1]{\ensuremath{\left\langle #1 \right\rangle}}
+    \newcommand{\op}[2]{\ensuremath{\vert{#1}\rangle\langle{#2}\vert}}
+    }
 
 \ProcessOptions\relax
 
@@ -124,7 +124,9 @@
 \newcommand{\ctrlo}[1]{\controlo \qwx[#1] \qw}
     % Inserts a control-on-0 and connects it to the object #1 wires below.
 \newcommand{\cctrl}[1]{\control \cwx[#1] \cw}
-    % Inserts a classical control and connects it to the object #1 wires below.     
+    % Inserts a classical control and connects it to the object #1 wires below. 
+\newcommand{\cctrlo}[1]{\controlo \cwx[#1] \cw}
+    % Inserts a classical control-on-0 and connects it to the object #1 wires below.    
 \newcommand{\targ}{*+<.02em,.02em>{\xy ="i","i"-<.39em,0em>;"i"+<.39em,0em> **\dir{-}, "i"-<0em,.39em>;"i"+<0em,.39em> **\dir{-},"i"*\xycircle<.4em>{} \endxy} \qw}
     % Inserts a CNOT target.
 \newcommand{\qswap}{*=<0em>{\times} \qw}
@@ -150,11 +152,11 @@
     % dotted boxes respectively, and the last eight options yield bottom, top, left, and right braces of the curly or normal variety.  See the Xy-pic reference manual for more options.
     % \gategroup can appear at the end of any gate entry, but it's good form to pick either the last entry or one of the corner gates.
     % BUG: \gategroup uses the four corner gates to determine the size of the bounding box.  Other gates may stick out of that box.  See \prop.
-\newcommand{\inputgroup}[5]{\POS"#1,1"."#2,1"."#1,1"."#2,1"!C*+<#3>\frm{\{}, \POS"#1,1"."#2,1"."#1,1"."#2,1"*!C!<1.7em,#4>=<0em>{#5}}
+\newcommand{\inputgroupv}[5]{\POS"#1,1"."#2,1"."#1,1"."#2,1"!C*+<#3>\frm{\{}, \POS"#1,1"."#2,1"."#1,1"."#2,1"*!C!<1.7em,#4>=<0em>{#5}}
     % Constructs an input group with label #5 and a grouping { from rows #1 to #2 with #3 and #4 controlling the spacing
-\newcommand{\inputgroupb}[4]{\POS"#1,1"."#2,1"."#1,1"."#2,1", \POS"#1,1"."#2,1"."#1,1"."#2,1"*!C!<1em,#3>=<0em>{#4}}
+\newcommand{\inputgroup}[4]{\POS"#1,1"."#2,1"."#1,1"."#2,1", \POS"#1,1"."#2,1"."#1,1"."#2,1"*!C!<1em,#3>=<0em>{#4}}
     % Constructs an input group with label #4 from rows #1 to #2 with #3 controlling the spacing
-\newcommand{\inputgroupc}[5]{\POS"#1,1"."#2,1"."#1,1"."#2,1", \POS"#1,1"."#2,1"."#1,1"."#2,1"*!C!<#5,#3>=<0em>{#4}}
+\newcommand{\inputgrouph}[5]{\POS"#1,1"."#2,1"."#1,1"."#2,1", \POS"#1,1"."#2,1"."#1,1"."#2,1"*!C!<#5,#3>=<0em>{#4}}
     % Constructs an input group with label #4 and a grouping /vdots from rows #1 to #2 with #3 and #5 controlling the spacing
 \newcommand{\rstick}[1]{*!L!<-.5em,0em>=<0em>{#1}}
     % Centers the left side of #1 in the cell.  Intended for lining up wire labels.  Note that non-gates have default size zero.

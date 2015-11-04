@@ -352,10 +352,10 @@ qubit gates, using \verb=\ctrl= and \verb=\qwx=.
 
 To indicate a gate applied to multiple qubits which are non-adjacent, simply use the \verb=\sgate= command like so
 
-{\small \begin{verbatim}\Qcircuit @C=1em @R=.7em {
-     & \multigate{1}{\mathcal{F}} & \qw \\
-     & \ghost{\mathcal{F}} & \qw \\
-     & \qw & \qw 
+{\scriptsize   \begin{verbatim}\\Qcircuit @C=1em @R=.7em {
+     & \multigate{1}{\mathcal{F}} & \sgate{\mathcal{G}}{2} & \qw \\
+     & \ghost{\mathcal{F}} & \qw & \qw\\
+     & \qw & \gate{\mathcal{G}} & \qw \\
 }\end{verbatim}}
 \noindent yields
 \[ \Qcircuit @C=1em @R=.7em {

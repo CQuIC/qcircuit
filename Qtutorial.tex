@@ -174,7 +174,19 @@ wires at the beginning by inserting the \verb=&= character at the start of each 
      & \gate{U^\dag} & \qw
 } \]\end{verbatim}}
 
-The only difference between these two codes is that the correct code has an ampersand (\verb=&=) at the start of each new line.
+The only difference between these two codes is that the correct code has an ampersand (\verb=&=) at the start of each new line.\\
+
+To indicate the end of a circuit simply use the \verb=\qwa= command as the last wire.
+
+\[ \Qcircuit @C=1em @R=.7em {
+     & \gate{U} & \qwa \\
+     & \gate{U^\dag} & \qwa
+} \]
+
+{\small \begin{verbatim}\[ \Qcircuit @C=1em @R=.7em {
+     & \gate{U} & \qwa \\
+     & \gate{U^\dag} & \qwa
+} \]\end{verbatim}}
 
 \subsection{CNOT and other controlled single qubit gates \label{S:CNOT}}
 
@@ -264,6 +276,29 @@ typeset with
  \lstick{\ket{1}} & \ctrl{-1} & \rstick{\ket{1}} \qw
 }\end{verbatim}}
 
+There are a few options for labelling multi-qubit input states, as well.
+
+
+\[ \Qcircuit @C=1em @R=1.6em {
+    \lstick{} & \qw & \qw \\
+    \lstick{} & \qw & \qw \inputgroup{1}{2}{.75em}{\ket{0^k}}\\
+    \lstick{} & \qw & \qw \\
+    \lstick{} & \qw & \qw \inputgroupv{3}{4}{.8em}{.8em}{\ket{\psi}}\\
+    \lstick{A} & \qw & \qw \\
+    \lstick{B} & \qw & \qw \inputgrouph{5}{6}{.75em}{\ket{\psi}}{2.2em}
+  }\]
+typeset with
+{\small \begin{verbatim}\Qcircuit @C=1em @R=1.6em {
+    \lstick{} & \qw & \qw \\
+    \lstick{} & \qw & \qw 
+      \inputgroup{1}{2}{.75em}{\ket{0^k}}\\
+    \lstick{} & \qw & \qw \\
+    \lstick{} & \qw & \qw
+      \inputgroupv{3}{4}{.8em}{.8em}{\ket{\psi}}\\
+    \lstick{A} & \qw & \qw \\
+    \lstick{B} & \qw & \qw 
+      \inputgrouph{5}{6}{.75em}{\ket{\psi}}{2.2em}
+  }\end{verbatim}}
 
 \section{More Complicated Circuits: Multiple Qubit Gates and Beyond}
 
@@ -315,6 +350,20 @@ with the label for the gate is needed.  Strictly speaking, the name of the gate 
 Note that controls to multiple qubit gates work the same as for single
 qubit gates, using \verb=\ctrl= and \verb=\qwx=.
 
+To indicate a gate applied to multiple qubits which are non-adjacent, simply use the \verb=\sgate= command like so
+
+{\small \begin{verbatim}\Qcircuit @C=1em @R=.7em {
+     & \multigate{1}{\mathcal{F}} & \qw \\
+     & \ghost{\mathcal{F}} & \qw \\
+     & \qw & \qw 
+}\end{verbatim}}
+\noindent yields
+\[ \Qcircuit @C=1em @R=.7em {
+     & \multigate{1}{\mathcal{F}} & \sgate{\mathcal{G}}{2} & \qw \\
+     & \ghost{\mathcal{F}} & \qw & \qw\\
+     & \qw & \gate{\mathcal{G}} & \qw \\
+}\]
+
 \subsection{Measurements and classical bits}
 
 Measurement gates are typeset just like ordinary gates, but they typically have some sort of decoration to indicate that measurement has occurred.  At present, Q-circuit supports the following single qubit measurement gates.
@@ -328,7 +377,9 @@ Measurement gates are typeset just like ordinary gates, but they typically have 
         \Qcircuit @C=1em @R=.7em {& \measuretab{M_{ijk}}} \hspace{.5em}
             & \verb=\measuretab= & \verb=\measuretab{M_{ijk}}=\\
         \Qcircuit @C=1em @R=.7em {& \measureD{\chi}}
-            & \verb=\measureD= & \verb=\measureD{\chi}=
+            & \verb=\measureD= & \verb=\measureD{\chi}=\\\\
+        \Qcircuit @C=1em @R=1.5em{ &\meterB{\ket{\xi_\pm}}}
+            & \verb=\meterB= & \verb=\meterB{\ket{\xi_\pm}}=
     \end{tabular}
 \end{center}}
 
@@ -343,6 +394,15 @@ Here is an example using measurement gates and classical wires and the correspon
      & \qw & \measure{\mbox{Codebit}} \cwx[1] \\
      & \qw & \gate{\chi} & \meter &
         \rstick{\cdots} \cw
+}\end{verbatim}}
+
+If you are using a special basis for your measurements the \verb=\meterB= command allows you to indicate the basis.
+\[\Qcircuit @C=1em @R=1.5em {
+    \lstick{\ket{\psi}} & \meterB{\ket{\xi_\pm}} & \cw
+}\]
+{\small \begin{verbatim}\Qcircuit @C=1em @R=1.5em {
+    \lstick{\ket{\psi}}  &\ctrl{1} & \qw & \qwa \\
+    \lstick{\ket{0}}  & \targ & \meterB{\ket{\xi_\pm}} & \cw
 }\end{verbatim}}
 
 Q-circuit also includes the commands \verb=\multimeasure= and \verb=\multimeasureD= for typesetting measurements on multiple qubits.  The syntax for these commands exactly parallels that of the \verb=\multigate= command (see \S\ref{S:multigate}).  An example is shown below.
@@ -377,6 +437,22 @@ Here is a circuit that shows how to construct swap, decorate wires, and use \ver
      & {/} \qw & \gate{H^{\otimes n}} & \qw
 }\end{verbatim}}
 
+To indicate a generalized circuit with $n$ iterations of something, you could use the \verb=\cds= command.
+\[\Qcircuit @C=1em @R=.7em {
+     & \targ & \targ & \cds{4}{\cdots} & \targ & \qw\\
+     & \ctrl{-1} & \qw &\qw & \qw & \qw \\
+     & \qw & \ctrl{-2} & \qw & \qw & \qw \\
+     & & & & & \\
+     & \qw & \qw & \qw & \ctrl{-4} & \qw \\
+}\]
+{\small \begin{verbatim}\Qcircuit @C=1em @R=.3em {
+     & \targ & \targ & \cds{4}{\cdots} & \targ & \qw\\
+     & \ctrl{-1} & \qw &\qw & \qw & \qw \\
+     & \qw & \ctrl{-2} & \qw & \qw & \qw \\
+     & & & & & \\
+     & \qw & \qw & \qw & \ctrl{-4} & \qw \\
+}\end{verbatim}}
+
 \subsection{How to control anything}
 
 Controlled-Z gates, wires with bends, and gates that control-on-zero can all be made using the extended family of control commands.  The complete family of control commands is \verb=\ctrl=, \verb=\crtlo=, \verb=\control=, and \verb=\controlo=.
@@ -389,8 +465,8 @@ Here is an example circuit using various controls.
 \[ \Qcircuit @C=1em @R=.7em {
     & \ctrl{2} & \ctrlo{1} & \ctrl{1} & \qw & \multigate{1}{U} & \qw \\
     & \qw & \targ & \ctrlo{2} \qw & \ctrl{1} & \ghost{U} & \qw\\
-    & \control \qw & \ctrl{1} & \qw & \meter & \controlo \cw \cwx &\\
-    & \qw & \control \qw & \gate{H} & \meter & \control \cw \cwx
+    & \control \qw & \ctrl{1} & \qw & \meter & \cctrlo{-1} &\\
+    & \qw & \control \qw & \gate{H} & \meter & \cctrl{-1}
 }\]
 
 {\small \begin{verbatim}\Qcircuit @C=1em @R=.7em {
@@ -399,9 +475,9 @@ Here is an example circuit using various controls.
     & \qw & \targ & \ctrlo{2} \qw 
         & \ctrl{1} & \ghost{U} & \qw \\
     & \control \qw & \ctrl{1} & \qw 
-        & \meter & \controlo \cw \cwx \\
+        & \meter & \cctrlo{-1} \\
     & \qw & \control \qw & \gate{H} 
-        & \meter & \control \cw \cwx
+        & \meter & \cctrl{-1}
 }\end{verbatim}}
 
 Note that we, the authors, have used a pair of controls connected by a wire to denote the controlled-Z gate.  This isn't standard notation, but we feel it is a logically consistent and concise notation, and it illustrates nicely the symmetry of the controlled-Z gate.  We hope to encourage the readers to adopt this notation in their own QCDs.

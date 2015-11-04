@@ -350,7 +350,7 @@ with the label for the gate is needed.  Strictly speaking, the name of the gate 
 Note that controls to multiple qubit gates work the same as for single
 qubit gates, using \verb=\ctrl= and \verb=\qwx=.
 
-To indicate a gate applied to multiple qubits which are non-adjacent, simply use the \verb=\sgate= command like so
+Sometimes a multi-qubit gate must be applied to qubits which are \emph{not} on adjacent rows (and as such, the \verb=\multigate= command is not suitable). To account for this, the \verb=\sgate= command can be used to ``hook together'' the application of a multi-qubit gate on non-adjacent qubits:
 
 {\scriptsize   \begin{verbatim}\\Qcircuit @C=1em @R=.7em {
      & \multigate{1}{\mathcal{F}} & \sgate{\mathcal{G}}{2} & \qw \\
@@ -363,6 +363,8 @@ To indicate a gate applied to multiple qubits which are non-adjacent, simply use
      & \ghost{\mathcal{F}} & \qw & \qw\\
      & \qw & \gate{\mathcal{G}} & \qw \\
 }\]
+
+Such notation may be a bit confusing. An alternative circuit which does use the \verb=\multigate= command would have a step where qubits 2 and 3 above were swapped, then the two-qubit gate $\mathcal{G}$ was applied, and finally the qubits were swapped back.
 
 \subsection{Measurements and classical bits}
 

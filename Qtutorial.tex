@@ -405,8 +405,7 @@ If you are using a special basis for your measurements the \verb=\meterB= comman
     \lstick{\ket{\psi}} & \meterB{\ket{\xi_\pm}} & \cw
 }\]
 {\small \begin{verbatim}\Qcircuit @C=1em @R=1.5em {
-    \lstick{\ket{\psi}}  &\ctrl{1} & \qw & \qwa \\
-    \lstick{\ket{0}}  & \targ & \meterB{\ket{\xi_\pm}} & \cw
+    \lstick{\ket{\psi}}  & \meterB{\ket{\xi_\pm}} & \cw
 }\end{verbatim}}
 
 Q-circuit also includes the commands \verb=\multimeasure= and \verb=\multimeasureD= for typesetting measurements on multiple qubits.  The syntax for these commands exactly parallels that of the \verb=\multigate= command (see \S\ref{S:multigate}).  An example is shown below.

@@ -471,9 +471,11 @@ To indicate a generalized circuit with $n$ iterations of something, you could us
 
 \subsection{How to control anything}
 
-Controlled-Z gates, wires with bends, and gates that control-on-zero can all be made using the extended family of control commands.  The complete family of control commands is \verb=\ctrl=, \verb=\crtlo=, \verb=\control=, and \verb=\controlo=.
+Controlled-Z gates, wires with bends, and gates that control-on-zero can all be made using the extended family of control commands.  The complete family of control commands is \verb=\ctrl=, \verb=\cctrl=, \verb=\ctrlo=, \verb=\cctrlo=, \verb=\control=, and \verb=\controlo=.
 
 \verb=\ctrlo= is identical to the \verb=\ctrl= command (see \S\ref{S:CNOT}) except that it draws an open bullet (indicating control-on-zero).  Both commands place a wire to the left and take one argument indicating which wire to connect to.
+
+The commands \verb=\cctrl= and \verb=\cctrlo= are identical to the \verb=\ctrl= and \verb=\ctrlo= commands, respectively, except they use \emph{classical wires} instead of quantum ones to do the controlling. These commands may be useful for writing circuits where the gates are conditioned on classical outputs.
 
 The commands \verb=\control= and \verb=\controlo= are isolated controls; they don't automatically connect to anything.  Isolated controls allow you to decide exactly what connections are made to your control operator, which makes them very useful for working with classical wires and rendering things like the controlled-Z.
 

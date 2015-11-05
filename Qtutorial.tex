@@ -357,14 +357,14 @@ Sometimes a multi-qubit gate must be applied to qubits which are \emph{not} on a
      & \ghost{\mathcal{F}} & \qw & \qw\\
      & \qw & \gate{\mathcal{G}} & \qw \\
 }\end{verbatim}}
-\noindent yields
+\noindent which yields
 \[ \Qcircuit @C=1em @R=.7em {
      & \multigate{1}{\mathcal{F}} & \sgate{\mathcal{G}}{2} & \qw \\
      & \ghost{\mathcal{F}} & \qw & \qw\\
      & \qw & \gate{\mathcal{G}} & \qw \\
 }\]
 
-Such notation may be a bit confusing. An alternative circuit which does use the \verb=\multigate= command would have a step where qubits 2 and 3 above were swapped, then the two-qubit gate $\mathcal{G}$ was applied, and finally the qubits were swapped back.
+Such notation may be a bit confusing, admittedly. An alternative circuit which does use the \verb=\multigate= command would have a step where qubits 2 and 3 above were swapped, then the two-qubit gate $\mathcal{G}$ was applied, and finally the qubits were swapped back.
 
 \subsection{Measurements and classical bits}
 

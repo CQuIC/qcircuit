@@ -672,25 +672,33 @@ The following table is grouped according to the effect of each command.\\
                     @!R \\
                     @!C \\
                     @! \\
-                    \char92 push\{\#1\}} \\
+                    \char92 push\{\#1\} \\
+                    \char92 cds\{\#1\}\{\#2\}}\\
         Wires & \parbox[t]{6cm}{\tt
                     \char92 qw[\#1] \\
                     \char92 qwx[\#1] \\
+                    \char92 qwa[\#1] \\
                     \char92 cw[\#1] \\
+                    \char92 cwa[\#1] \\
                     \char92 cwx[\#1] }\\
         Gates & \parbox[t]{6cm}{\tt
                     \char92 gate\{\#1\} \\
                     \char92 targ \\
                     \char92 qswap \\
                     \char92 multigate\{\#1\}\{\#2\} \\
+                    \char92 sgate\{\#1\}\{\#2\}\\
                     \char92 ghost\{\#1\} }\\
         Controls & \parbox[t]{6cm}{\tt
                     \char92 ctrl\{\#1\} \\
                     \char92 ctrlo\{\#1\} \\
+                    \char92 cctrl\{\#1\} \\
+                    \char92 cctrlo\{\#1\} \\
                     \char92 control \\
                     \char92 controlo } \\
         Measurements & \parbox[t]{6cm}{\tt
                     \char92 meter \\
+                    \char92 meterB\{\#1\} \\
+                    \char92 smeterB\{\#1\}\{\#2\} \\
                     \char92 measure\{\#1\} \\
                     \char92 measureD\{\#1\} \\
                     \char92 measuretab\{\#1\} \\
@@ -703,7 +711,11 @@ The following table is grouped according to the effect of each command.\\
                     \char92 dstick\{\#1\} \\
                     \char92 bra\{\#1\} \\
                     \char92 ket\{\#1\} \\
-                    \char92 gategroup\{\#1\}\{\#2\}\{\#3\}\{\#4\}\{\#5\}\{\#6\} }
+                    \char92 gategroup\{\#1\}\{\#2\}\{\#3\}\{\#4\}\{\#5\}\{\#6\}\\
+                    \char92 inputgroup\{\#1\}\{\#2\}\{\#3\}\{\#4\}\\
+                    \char92 inputgroupv\{\#1\}\{\#2\}\{\#3\}\{\#4\}\{\#5\}\\
+                    \char92 inputgrouph\{\#1\}\{\#2\}\{\#3\}\{\#4\}\{\#5\}\\
+                    }
     \end{tabular}
 \end{center}}
 

@@ -418,6 +418,19 @@ Q-circuit also includes the commands \verb=\multimeasure= and \verb=\multimeasur
     & \ghost{\text{Bell}}
 }\end{verbatim}}
  
+ In addition, if the measurement must be done on qubits which are \emph{not} adjacent, Q-circuit provides for the \verb=\smeterB= command, which, similar to the \verb=\sgate= command, allows one to split the measurement:
+
+ \[ \Qcircuit @C=1em @R=.7em {
+     &  \smeterB{\ket{\xi_{\pm}}}{2} & \qw \\
+     &  \qw & \qw\\
+     & \gate{\ket{\xi_{\pm}}} & \qw \\
+}\]
+{\small \begin{verbatim} \Qcircuit @C=1em @R=.7em {
+     &  \smeterB{\ket{\xi_{\pm}}}{2} & \qw \\
+     &  \qw & \qw\\
+     & \gate{\ket{\xi_{\pm}}} & \qw \\
+}\end{verbatim}}
+
 \subsection{Non-gate inserts, forcing space, and swap \label{S:inserts}}
 
 In addition to the gates defined by Q-circuit, standard \LaTeX\ can function as a gate if enclosed in curly brackets.  By default, inputs are assumed to have zero size, so no space will be made for the resulting object and any wires connecting to it will run straight to the object's middle.  Standard \LaTeX\ entries can serve as labels or wire decorations.

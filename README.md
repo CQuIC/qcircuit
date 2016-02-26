@@ -3,9 +3,9 @@ qcircuit
 
 A quantum circuit drawing application.
 
-The original website for this project may be found on the [qcircuit page](http://physics.unm.edu/CQuIC/Qcircuit/) through the Center for Quantum Information and Control. We use the GitHub [wiki](https://github.com/CQuIC-GitHub/qcircuit/wiki) pages to make more information about qcircuit available.
+The original website for this project may be found on the [qcircuit page](http://physics.unm.edu/CQuIC/Qcircuit/) through the Center for Quantum Information and Control. We use the GitHub [wiki](https://github.com/CQuIC/qcircuit/wiki) pages to make more information about qcircuit available.
 
-We welcome others to fork our project and include enhancements. See the [Issues list](https://github.com/CQuIC-GitHub/qcircuit/issues?state=open) for requested updates and features.
+We welcome others to fork our project and include enhancements. See the [Issues list](https://github.com/CQuIC/qcircuit/issues?q=is%3Aopen) for requested updates and features.
 
 Installation
 ========

@@ -1,3 +1,5 @@
+*.bbl
+*.blg
 *.log
 *.aux
 *.out

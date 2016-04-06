@@ -44,13 +44,11 @@
 \usepackage{ifpdf}
 \ifpdf
 \else
-\PackageWarningNoLine{Qcircuit}{Qcircuit is loading in Postscript mode.  The Xy-pic options ps and dvips will be loaded.  If you wish to use other Postscript drivers for Xy-pic, you must modify the code in Qcircuit.tex}
-%    The following options load the drivers most commonly required to
-%    get proper Postscript output from Xy-pic.  Should these fail to work,
-%    try replacing the following two lines with some of the other options
-%    given in the Xy-pic reference manual.
-\xyoption{ps}
-\xyoption{dvips}
+\PackageWarningNoLine{Qcircuit}{qcircuit is not loading in PDF mode. Activating all Xy-pic features to compensate. If you wish to use specific drivers for Xy-pic, you must modify the code in qcircuit.sty}
+%    The following option loads all the features in Xy-pic. This
+%    this is included as work-around to ensure documents compile
+%    images correctly when using XeLaTeX.
+\xyoption{all}
 \fi
 
 % The following resets Xy-pic matrix alignment to the pre-3.8 default, as

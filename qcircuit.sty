@@ -28,11 +28,11 @@
     }
 
 \DeclareOption{qm}{
-    \newcommand{\ip}[2]{\ensuremath{\left\langle{#1}\right\vert{#2}\rangle}}
-    \newcommand{\melem}[3]{\ensuremath{\left\langle{#1}\right\vert{#2}\vert{#3}\rangle}}
+    \newcommand{\ip}[2]{\ensuremath{\left\langle{#1}\middle\vert{#2}\right\rangle}}
+    \newcommand{\melem}[3]{\ensuremath{\left\langle{#1}\middle\vert{#2}\middle\vert{#3}\right\rangle}}
     \newcommand{\expval}[1]{\ensuremath{\left\langle #1 \right\rangle}}
-    \newcommand{\op}[2]{\ensuremath{\vert{#1}\rangle\langle{#2}\vert}}
-    }
+    \newcommand{\op}[2]{\ensuremath{\left\vert{#1}\middle\rangle\middle\langle{#2}\right\vert}}
+}
 
 \ProcessOptions\relax
 

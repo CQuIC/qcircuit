@@ -28,7 +28,7 @@ Ever tried to use \LaTeX\ to typeset something like this?
 \[
 \Qcircuit @C=.5em @R=0em @!R {
 & \ctrl{1} & \qw & & & \qw & \ctrl{1} & \qw & \ctrl{1} & \ctrl{2} & \qw\\
-& \ctrl{1} & \qw & \push{\rule{.3em}{0em}=\rule{.3em}{0em}} & & \ctrl{1} & \targ & \ctrl{1} & \targ & \qw & \qw\\
+& \ctrl{1} & \qw & \push{{}={}} & & \ctrl{1} & \targ & \ctrl{1} & \targ & \qw & \qw\\
 & \gate{U} & \qw & & & \gate{V} & \qw & \gate{V^\dag} & \qw & \gate{V} & \qw
 }
 \]
@@ -75,9 +75,15 @@ This tutorial teaches you to use qcircuit from the ground up.  Many readers will
 
 To install qcircuit, place the file \verb=qcircuit.sty= somewhere your \TeX\ distribution can find it and run the appropriate command to update your \TeX\ tree.  To use it, place the command
 {\small \begin{verbatim}\usepackage[options]{qcircuit}\end{verbatim}}
-\noindent in the preamble of your document.  \verb=qcircuit.sty= loads the \verb=amsmath= and \verb=xy= packages and implements a set of circuit commands.  If need be, you can obtain the necessary packages at \href{http://www.ctan.org/}{http://www.ctan.org/}.
+\noindent in the preamble of your document.  \verb=qcircuit.sty= loads the \verb=xy= package and implements a set of circuit commands.  If need be, you can obtain the necessary packages at \href{http://www.ctan.org/}{http://www.ctan.org/}.
 
-qcircuit comes with two options - \verb=braket= and \verb=qm= - which provide defined commands for bras, kets, inner and outer products, matrix elements, and expectation values. By default, these options are not enabled, allowing you to define your own commands if you wish. 
+qcircuit comes with two options - \verb=braket= and \verb=qm= - which provide defined commands for bras, kets, inner and outer products, matrix elements, and expectation values. By default, these options are not enabled, allowing you to define your own commands if you wish.
+
+You can also use qcircuit with plain \TeX.  There you simply do
+{\small \begin{verbatim}\input qcircuit.sty\end{verbatim}}\noindent
+To select the package options you have to use a special command for option selection
+{\small \begin{verbatim}\Qcircuitoption{options}\end{verbatim}}\noindent
+where \verb=options= is a comma separated list of options.
 
 \section{Special Commands}
 As mentioned above, qcircuit comes with predefined commands for some commonly used functions. We have chosen to use the \verb=ensuremath= command, meaning you do not need to put dollar signs around the calls to these commands.

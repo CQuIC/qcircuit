@@ -76,11 +76,13 @@
 \newcommand{\cds}[2]{*+<1em,.9em>{\hphantom{#2}} \POS [0,0].[#1,0]="e",!C *{#2};"e"+ R \qw}
     % Allows the insertion of text without a box and exands circuit around this text.
     % This is useful for such things as ... to indicate a generalized circuit.
-\newcommand{\barrier}[1]{\ar @{--}[#1,1]+<0.95em, -1em>;[0,1]+<0.95em, 1em>}
+\newcommand{\barrier}[2][-0.95em]{\ar @{--}[#2,1]+<#1, -1em>;[0,1]+<#1, 1em>}
     % Defines a barrier that is represented by a horizontal dashed line.
     % It takes a a single argument to specify how many bits to cover
+    % To center the barrier between gates you can adjust the horizontal offset
+    % with an optional second parameter. This is the horizontal offset in em.
+    % It defaults to -0.95em
     % WARNING: Be sure to place the barrier on the topmost bit it covers, it only propogates downwards
-    % WARNING: The line has fixed offsets (.95 em horizontally) in attempt to center the line between gates
 \newcommand{\gate}[1]{*+<.6em>{#1} \POS ="i","i"+UR;"i"+UL **\dir{-};"i"+DL **\dir{-};"i"+DR **\dir{-};"i"+UR **\dir{-},"i" \qw}
     % Boxes the argument, making a gate.
 \newcommand{\sgate}[2]{\gate{#1}  \qwx[#2]}

@@ -483,6 +483,45 @@ In addition it is possible to use a classical input to a gate with \verb=\cghost
 & \qw    &        \ghost{U} & \qw & \qw
 }\end{verbatim}}
 
+\subsection{Barriers}
+
+You can use the \verb=\barrier= command to draw a barrier in your circuit. This
+will be represented as a vertical dashed line in your circuit. The number of
+bits downard to span is is adjustable and must be specified when adding it to
+your circuit. If you want to span just a single qubit you use 0.
+
+Here is a simple example that adds a barrier over 2 qubits on a small
+circuit:
+
+\[ \Qcircuit {
+    & \gate{X} \barrier{1} & \qw \\
+    & \gate{X} & \qw \\
+}\]
+
+{\small \begin{verbatim} \Qcircuit {
+    & \gate{X} \barrier{1}  & \qw \\
+    & \gate{X} & \qw \\
+}\end{verbatim}}
+
+
+The other complication with drawing barriers is that because spacing between
+elements on a circuit are not a fixed distance finding the exact spot to place
+a barrier on a circuit may need manual adjustment. There is an optional
+parameter for the \verb=\barrier= command to specify the horizontal offset from
+the location you're placing it. For example:
+
+\[ \Qcircuit {
+    & \gate{X} \barrier[-1.95em]{1} & \meter & \qw \\
+    & \gate{X} & \qw & \qw \\
+    & \cw & \cw \cwx[-2] & \cw \\
+}\]
+
+{\small \begin{verbatim} \Qcircuit  {
+    & \gate{X} \barrier[-1.95em]{1} & \meter & \qw \\
+    & \gate{X} & \qw & \qw \\
+    & \cw & \cw \cwx[-2] & \cw  \\
+}\end{verbatim}}
+
 \subsection{How to control anything}
 
 Controlled-Z gates, wires with bends, and gates that control-on-zero can all be made using the extended family of control commands.  The complete family of control commands is \verb=\ctrl=, \verb=\cctrl=, \verb=\ctrlo=, \verb=\cctrlo=, \verb=\control=, and \verb=\controlo=.

@@ -48,7 +48,7 @@ A simple way to check you successfully installed qcircuit is to download the `Qt
 
 Help
 =======
-A general FAQ can be found [on the wiki](https://github.com/CQuIC-GitHub/qcircuit/wiki/FAQ). Questions can be emailed to user Travis-S.
+A general FAQ can be found [on the wiki](https://github.com/CQuIC-GitHub/qcircuit/wiki/FAQ). Questions can be emailed to user [Travis-S](https://github.com/Travis-S).
 
 License
 ========

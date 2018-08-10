@@ -469,6 +469,20 @@ To indicate a generalized circuit with $n$ iterations of something, you could us
      & \qw & \qw & \qw & \ctrl{-4} & \qw \\
 }\end{verbatim}}
 
+In addition it is possible to use a classical input to a gate with \verb=\cghost=, or no input with \verb=\nghost=.
+\[ \Qcircuit @C=1em @R=0em {
+& \qw    & \multigate{3}{U} & \qw & \qw \\
+& \cw    &       \cghost{U} & \cw & \cw \\
+& \cdots &       \nghost{U} & \cdots &  \\
+& \qw    &        \ghost{U} & \qw & \qw
+}\]
+{\small \begin{verbatim}\Qcircuit @C=1em @R=0em {
+& \qw    & \multigate{3}{U} & \qw & \qw \\
+& \cw    &       \cghost{U} & \cw & \cw \\
+& \cdots &       \nghost{U} & \cdots &  \\
+& \qw    &        \ghost{U} & \qw & \qw
+}\end{verbatim}}
+
 \subsection{How to control anything}
 
 Controlled-Z gates, wires with bends, and gates that control-on-zero can all be made using the extended family of control commands.  The complete family of control commands is \verb=\ctrl=, \verb=\cctrl=, \verb=\ctrlo=, \verb=\cctrlo=, \verb=\control=, and \verb=\controlo=.
@@ -687,7 +701,9 @@ The following table is grouped according to the effect of each command.\\
                     \char92 qswap \\
                     \char92 multigate\{\#1\}\{\#2\} \\
                     \char92 sgate\{\#1\}\{\#2\}\\
-                    \char92 ghost\{\#1\} }\\
+                    \char92 ghost\{\#1\} \\
+                    \char92 cghost\{\#1\} \\
+                    \char92 nghost\{\#1\} }\\
         Controls & \parbox[t]{6cm}{\tt
                     \char92 ctrl\{\#1\} \\
                     \char92 ctrlo\{\#1\} \\

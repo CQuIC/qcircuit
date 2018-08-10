@@ -142,6 +142,10 @@
 \newcommand{\ghost}[1]{*+<1em,.9em>{\hphantom{#1}} \qw}
     % Leaves space for \multigate on wires other than the one on which \multigate appears.  Without this command wires will cross your gate.
     % #1 should match the second argument in the corresponding \multigate.
+\newcommand{\cghost}[1]{*+<1em,.9em>{\hphantom{#1}} \cw}
+    % Same as ghost but with a classical incoming wire.
+\newcommand{\nghost}[1]{*+<1em,.9em>{\hphantom{#1}}}
+    % Same as ghost but with no incoming wire.
 \newcommand{\push}[1]{*{#1}}
     % Inserts #1, overriding the default that causes entries to have zero size.  This command takes the place of a gate.
     % Like a gate, it must precede any wire commands.

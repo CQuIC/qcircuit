@@ -485,10 +485,9 @@ In addition it is possible to use a classical input to a gate with \verb=\cghost
 
 \subsection{Barriers}
 
-You can use the \verb=\barrier= command to draw a barrier in your circuit. This
-will be represented as a vertical dashed line in your circuit. The number of
-bits downard to span is is adjustable and must be specified when adding it to
-your circuit. If you want to span just a single qubit you use 0.
+You can use the \verb=\barrier= command to draw a barrier in your circuit, represented as a vertical dashed line.
+The number of bits downard to span is is adjustable and must be specified when adding it to
+the circuit. If you want to span just a single qubit you use 0.
 
 Here is a simple example that adds a barrier over 2 qubits on a small
 circuit:
@@ -505,10 +504,10 @@ circuit:
 
 
 The other complication with drawing barriers is that because spacing between
-elements on a circuit are not a fixed distance finding the exact spot to place
+elements on a circuit is not a fixed distance, finding the exact spot to place
 a barrier on a circuit may need manual adjustment. There is an optional
 parameter for the \verb=\barrier= command to specify the horizontal offset from
-the location you're placing it. For example:
+the location you're placing it. For example, contrast the following three circuits:
 
 \[ \Qcircuit {
     & \gate{X} \barrier[-1.95em]{1} & \meter & \qw \\
@@ -521,6 +520,33 @@ the location you're placing it. For example:
     & \gate{X} & \qw & \qw \\
     & \cw & \cw \cwx[-2] & \cw  \\
 }\end{verbatim}}
+ 
+
+\[ \Qcircuit {
+    & \gate{X} \barrier[0em]{1} & \meter & \qw \\
+    & \gate{X} & \qw & \qw \\
+    & \cw & \cw \cwx[-2] & \cw \\
+}\]
+
+{\small \begin{verbatim} \Qcircuit  {
+    & \gate{X} \barrier[0em]{1} & \meter & \qw \\
+    & \gate{X} & \qw & \qw \\
+    & \cw & \cw \cwx[-2] & \cw  \\
+}\end{verbatim}}
+
+\[ \Qcircuit {
+    & \gate{X} \barrier[1.95em]{1} & \meter & \qw \\
+    & \gate{X} & \qw & \qw \\
+    & \cw & \cw \cwx[-2] & \cw \\
+}\]
+
+{\small \begin{verbatim} \Qcircuit  {
+    & \gate{X} \barrier[1em]{1} & \meter & \qw \\
+    & \gate{X} & \qw & \qw \\
+    & \cw & \cw \cwx[-2] & \cw  \\
+}\end{verbatim}}
+
+The default value for the spacing is set to -0.95em.
 
 \subsection{How to control anything}
 

@@ -483,6 +483,23 @@ To indicate a generalized circuit with $n$ iterations of something, you could us
      & \qw & \qw & \qw & \ctrl{-4} & \qw \\
 }\end{verbatim}}
 
+To do the same without wires, you could use the \verb=\ncds= command.
+\[\Qcircuit @C=1em @R=.7em {
+     & \targ & \targ & \qw & \ncds{4}{\cdots}
+          && \targ & \qw\\
+     & \ctrl{-1} & \qw & \qw & && \qw & \qw \\
+     & \qw & \ctrl{-2} & \qw & && \qw & \qw \\
+     & & & && & \\
+     & \qw & \qw & \qw & && \ctrl{-4} & \qw \\
+}\]
+{\small \begin{verbatim}\Qcircuit @C=1em @R=.3em {
+     & \targ & \targ & \qw & \ncds{4}{\cdots}
+          && \targ & \qw\\
+     & \ctrl{-1} & \qw & \qw & && \qw & \qw \\
+     & \qw & \ctrl{-2} & \qw & && \qw & \qw \\
+     & & & && & \\
+     & \qw & \qw & \qw & && \ctrl{-4} & \qw \\
+}\end{verbatim}}
 
 \subsection{Barriers}
 
@@ -753,7 +770,8 @@ The following table is grouped according to the effect of each command.\\
                     @!C \\
                     @! \\
                     \char92 push\{\#1\} \\
-                    \char92 cds\{\#1\}\{\#2\}}\\
+                    \char92 cds\{\#1\}\{\#2\} \\
+                    \char92 ncds\{\#1\}\{\#2\}}\\
         Wires & \parbox[t]{6cm}{\tt
                     \char92 qw[\#1] \\
                     \char92 qwx[\#1] \\

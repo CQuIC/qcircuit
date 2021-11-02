@@ -85,6 +85,8 @@
     % WARNING: Be sure to place the barrier on the topmost bit it covers, it only propogates downwards
 \newcommand{\gate}[1]{*+<.6em>{#1} \POS ="i","i"+UR;"i"+UL **\dir{-};"i"+DL **\dir{-};"i"+DR **\dir{-};"i"+UR **\dir{-},"i" \qw}
     % Boxes the argument, making a gate.
+\newcommand{\cgate}[1]{*+<.6em>{#1} \POS ="i","i"+UR;"i"+UL **\dir{-};"i"+DL **\dir{-};"i"+DR **\dir{-};"i"+UR **\dir{-},"i" \cw}
+    % Boxes the argument, making a gate, with an incoming classical wire.
 \newcommand{\sgate}[2]{\gate{#1}  \qwx[#2]}
     % Creates a gate and a qwx wire going #2 spots below, for a gate split over
     % non-adjacent rows

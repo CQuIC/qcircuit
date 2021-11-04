@@ -445,6 +445,18 @@ Q-circuit also includes the commands \verb=\multimeasure= and \verb=\multimeasur
      & \gate{\ket{\xi_{\pm}}} & \qw \\
 }\end{verbatim}}
 
+The \verb=\gate= command draws a gate with an incoming quantum wire. In contrast, the \verb=\cgate= command draws a gate with an incoming classical wire, and it can be useful for resetting a qubit after measurement:
+\[\Qcircuit @C=1em @R=.7em {
+    & \qw    & \gate{X}              & \qw             & \qw \\
+    & \meter & \control \cw \cwx[-1] & \cgate{\ket{0}} & \qw
+}\]
+{\small \begin{verbatim}\Qcircuit @C=1em @R=.7em {
+    & \qw & \gate{X} & \qw & \qw \\
+    & \meter & \control \cw \cwx[-1] 
+        & \cgate{\ket{0}} & \qw
+}\end{verbatim}}
+
+
 \subsection{Non-gate inserts, forcing space, and swap \label{S:inserts}}
 
 In addition to the gates defined by Q-circuit, standard \LaTeX\ can function as a gate if enclosed in curly brackets.  By default, inputs are assumed to have zero size, so no space will be made for the resulting object and any wires connecting to it will run straight to the object's middle.  Standard \LaTeX\ entries can serve as labels or wire decorations.

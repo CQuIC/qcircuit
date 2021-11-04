@@ -361,6 +361,21 @@ In addition it is possible to use a classical input to a gate with \verb=\cghost
 & \qw    &        \ghost{U} & \qw & \qw
 }\end{verbatim}}
 
+Finally, the command \verb=\cmultigate= creates a multigate with a classical first input (for which \verb=\cghost= is not an option).
+
+\[ \Qcircuit @C=1em @R=0em {
+& \cw    & \cmultigate{3}{U} & \cw & \cw \\
+& \qw    &       \ghost{U} & \qw & \qw \\
+& \cdots &       \nghost{U} & \cdots &  \\
+& \qw    &        \ghost{U} & \qw & \qw
+}\]
+{\small \begin{verbatim}\Qcircuit @C=1em @R=0em {
+& \cw    & \cmultigate{3}{U} & \cw & \cw \\
+& \qw    &       \ghost{U} & \qw & \qw \\
+& \cdots &       \nghost{U} & \cdots &  \\
+& \qw    &        \ghost{U} & \qw & \qw
+}\end{verbatim}}
+
 Note that controls to multiple qubit gates work the same as for single
 qubit gates, using \verb=\ctrl= and \verb=\qwx=.
 
@@ -766,6 +781,7 @@ The following table is grouped according to the effect of each command.\\
                     \char92 targ \\
                     \char92 qswap \\
                     \char92 multigate\{\#1\}\{\#2\} \\
+                    \char92 cmultigate\{\#1\}\{\#2\} \\
                     \char92 sgate\{\#1\}\{\#2\}\\
                     \char92 ghost\{\#1\} \\
                     \char92 cghost\{\#1\} \\

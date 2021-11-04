@@ -138,7 +138,9 @@
     % Inserts half a swap gate.
     % Must be connected to the other swap with \qwx.
 \newcommand{\multigate}[2]{*+<1em,.9em>{\hphantom{#2}} \POS [0,0]="i",[0,0].[#1,0]="e",!C *{#2},"e"+UR;"e"+UL **\dir{-};"e"+DL **\dir{-};"e"+DR **\dir{-};"e"+UR **\dir{-},"i" \qw}
-    % Draws a multiple qubit gate starting at the current position and spanning #1 additional gates below.
+\newcommand{\cmultigate}[2]{*+<1em,.9em>{\hphantom{#2}} \POS [0,0]="i",[0,0].[#1,0]="e",!C *{#2},"e"+UR;"e"+UL **\dir{-};"e"+DL **\dir{-};"e"+DR **\dir{-};"e"+UR **\dir{-},"i" \cw}
+% Same as multigate but with a classical incoming wire
+% Draws a multiple qubit gate starting at the current position and spanning #1 additional gates below.
     % #2 gives the label for the gate.
     % You must use an argument of the same width as #2 in \ghost for the wires to connect properly on the lower lines.
 \newcommand{\ghost}[1]{*+<1em,.9em>{\hphantom{#1}} \qw}

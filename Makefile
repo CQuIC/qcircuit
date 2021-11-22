@@ -13,5 +13,5 @@ qcircuit/README.md:	README.md
 	mkdir -p qcircuit
 	cp README.md qcircuit/README.md
 
-Qutorial.pdf:	Qtutorial.tex
+Qtutorial.pdf:	Qtutorial.tex
 	pdflatex Qtutorial

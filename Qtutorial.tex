@@ -278,14 +278,15 @@ typeset with
 
 There are a few options for labelling multi-qubit input states, as well.
 
-
 \[ \Qcircuit @C=1em @R=1.6em {
     \lstick{} & \qw & \qw \\
     \lstick{} & \qw & \qw \inputgroup{1}{2}{.75em}{\ket{0^k}}\\
     \lstick{} & \qw & \qw \\
     \lstick{} & \qw & \qw \inputgroupv{3}{4}{.8em}{.8em}{\ket{\psi}}\\
     \lstick{A} & \qw & \qw \\
-    \lstick{B} & \qw & \qw \inputgrouph{5}{6}{.75em}{\ket{\psi}}{2.2em}
+    \lstick{B} & \qw & \qw \inputgrouph{5}{6}{.75em}{\ket{\psi}}{2.2em}\\
+    \lstick{A} & \qw & \qw \\
+    \lstick{B} & \qw & \qw \inputgroupvv{7}{8}{3.75em}{1em}{3.1em}{0.9em}{\ket{\psi}}
   }\]
 typeset with
 {\small \begin{verbatim}\Qcircuit @C=1em @R=1.6em {
@@ -293,11 +294,15 @@ typeset with
     \lstick{} & \qw & \qw 
       \inputgroup{1}{2}{.75em}{\ket{0^k}}\\
     \lstick{} & \qw & \qw \\
-    \lstick{} & \qw & \qw
+    \lstick{} & \qw & \qw 
       \inputgroupv{3}{4}{.8em}{.8em}{\ket{\psi}}\\
     \lstick{A} & \qw & \qw \\
     \lstick{B} & \qw & \qw 
-      \inputgrouph{5}{6}{.75em}{\ket{\psi}}{2.2em}
+      \inputgrouph{5}{6}{.75em}{\ket{\psi}}{2.2em}\\
+    \lstick{A} & \qw & \qw \\
+    \lstick{B} & \qw & \qw 
+      \inputgroupvv{7}{8}{3.75em}{1em}{3.1em}{0.9em}
+      {\ket{\psi}}
   }\end{verbatim}}
 
 \section{More Complicated Circuits: Multiple Qubit Gates and Beyond}
@@ -778,6 +783,7 @@ The following table is grouped according to the effect of each command.\\
                     \char92 targ \\
                     \char92 qswap \\
                     \char92 multigate\{\#1\}\{\#2\} \\
+                    \char92 cgate\{\#1\}\\
                     \char92 sgate\{\#1\}\{\#2\}\\
                     \char92 ghost\{\#1\} \\
                     \char92 cghost\{\#1\} \\
@@ -808,6 +814,7 @@ The following table is grouped according to the effect of each command.\\
                     \char92 gategroup\{\#1\}\{\#2\}\{\#3\}\{\#4\}\{\#5\}\{\#6\}\\
                     \char92 inputgroup\{\#1\}\{\#2\}\{\#3\}\{\#4\}\\
                     \char92 inputgroupv\{\#1\}\{\#2\}\{\#3\}\{\#4\}\{\#5\}\\
+                    \char92 inputgroupvv\{\#1\}\{\#2\}\{\#3\}\{\#4\}\{\#5\}\{\#6\}\{\#7\}\\
                     \char92 inputgrouph\{\#1\}\{\#2\}\{\#3\}\{\#4\}\{\#5\}\\
                     }
     \end{tabular}

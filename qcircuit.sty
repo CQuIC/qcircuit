@@ -165,6 +165,8 @@
     % BUG: \gategroup uses the four corner gates to determine the size of the bounding box.  Other gates may stick out of that box.  See \prop.
 \newcommand{\inputgroupv}[5]{\POS"#1,1"."#2,1"."#1,1"."#2,1"!C*+<#3>\frm{\{}, \POS"#1,1"."#2,1"."#1,1"."#2,1"*!C!<1.7em,#4>=<0em>{#5}}
     % Constructs an input group with label #5 and a grouping { from rows #1 to #2 with #3 and #4 controlling the spacing
+\newcommand{\inputgroupvv}[7]{\POS"#1,1"."#2,1"."#1,1"."#2,1"!C*+<#3,#4>\frm{\{}, \POS"#1,1"."#2,1"."#1,1"."#2,1"*!C!<#5,#6>=<0em>{#7}}
+    % Constructs an input group with label #7 and a grouping { from rows #1 to #2, with #3 and #4 controlling the position and height of the curly brace, and #5 and #6 controlling the position of the label
 \newcommand{\inputgroup}[4]{\POS"#1,1"."#2,1"."#1,1"."#2,1", \POS"#1,1"."#2,1"."#1,1"."#2,1"*!C!<1em,#3>=<0em>{#4}}
     % Constructs an input group with label #4 from rows #1 to #2 with #3 controlling the spacing
 \newcommand{\inputgrouph}[5]{\POS"#1,1"."#2,1"."#1,1"."#2,1", \POS"#1,1"."#2,1"."#1,1"."#2,1"*!C!<#5,#3>=<0em>{#4}}

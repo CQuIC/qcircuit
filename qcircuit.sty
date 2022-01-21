@@ -76,6 +76,8 @@
 \newcommand{\cds}[2]{*+<1em,.9em>{\hphantom{#2}} \POS [0,0].[#1,0]="e",!C *{#2};"e"+ R \qw}
     % Allows the insertion of text without a box and exands circuit around this text.
     % This is useful for such things as ... to indicate a generalized circuit.
+\newcommand{\ncds}[2]{{\hphantom{#2}} \POS [0,0].[#1,0]="e",!C *{#2};"e"+ R}
+    % As \cds without incoming wire and extra space.
 \newcommand{\barrier}[2][-0.95em]{\ar @{--}[#2,1]+<#1, -1em>;[0,1]+<#1, 1em>}
     % Defines a barrier that is represented by a horizontal dashed line.
     % It takes a a single argument to specify how many bits to cover

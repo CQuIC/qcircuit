@@ -1,5 +1,5 @@
 %    qcircuit version 2.7.0
-%    Contributors: Steve Flammia, Bryan Eastin, Travis Scholten
+%    Contributors: Steve Flammia, Bryan Eastin, Travis Scholten, Pedro Rivero
 %    This program is free software; you can redistribute it and/or modify
 %    it under the terms of the GNU General Public License as published by
 %    the Free Software Foundation; either version 2 of the License, or
@@ -90,13 +90,22 @@
 \newcommand{\sgate}[2]{\gate{#1}  \qwx[#2]}
     % Creates a gate and a qwx wire going #2 spots below, for a gate split over
     % non-adjacent rows
-\newcommand{\meter}{*=<1.8em,1.4em>{\xy ="j","j"-<.778em,.322em>;{"j"+<.778em,-.322em> \ellipse ur,_{}},"j"-<0em,.4em>;p+<.5em,.9em> **\dir{-},"j"+<2.2em,2.2em>*{},"j"-<2.2em,2.2em>*{} \endxy} \POS ="i","i"+UR;"i"+UL **\dir{-};"i"+DL **\dir{-};"i"+DR **\dir{-};"i"+UR **\dir{-},"i" \qw}
-    % Inserts a measurement meter.
+\newcommand{\paulimeter}[1]{*=<1.8em,1.4em>{\xy ="j","j"-<.778em,.322em>;{"j"+<.778em,-.322em> \ellipse ur,_{}},"j"-<0em,.4em>;p+<.5em,.9em> **\dir{-},"j"+<2.2em,2.2em>*{},"j"-<2.2em,2.2em>*{}, <-.5em,.4em> *\txt{\tiny{#1}} \endxy} \POS ="i","i"+UR;"i"+UL **\dir{-};"i"+DL **\dir{-};"i"+DR **\dir{-};"i"+UR **\dir{-},"i" \qw}
+    % Inserts a Pauli measurement meter.
+    % The argument is meant to receive the Pauli (i.e. X, Y, Z) to display.
     % In case you're wondering, the constants .778em and .322em specify
     % one quarter of a circle with radius 1.1em.
     % The points added at + and - <2.2em,2.2em> are there to strech the
     % canvas, ensuring that the size is unaffected by erratic spacing issues
     % with the arc.
+\newcommand{\meter}{\paulimeter{}}
+    % Inserts a measurement meter.
+\newcommand{\xmeter}{\paulimeter{X}}
+    % Inserts a X measurement meter.
+\newcommand{\ymeter}{\paulimeter{Y}}
+    % Inserts a Y measurement meter.
+\newcommand{\zmeter}{\paulimeter{Z}}
+    % Inserts a Z measurement meter.
 \newcommand{\metersymb}{\xy ="j","j"-<.778em,.322em>;{"j"+<.778em,-.322em> \ellipse ur,_{}},"j"-<0em,.4em>;p+<.5em,.9em> **\dir{-},"j"+<2.2em,2.2em>*{},"j"-<2.2em,2.2em>*{} \endxy}
     % A longer meter
 \newcommand{\meterB}[1]{*=<1.8em,2.6em>{\xy 0;<0em,-.8em>:

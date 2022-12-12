@@ -10,7 +10,7 @@
 
 \title{qcircuit 2.7.0 Tutorial}
 
-\author{Original authors: Bryan Eastin, Steve T Flammia\\ Edits: Travis L Scholten}
+\author{Original authors: Bryan Eastin, Steve T Flammia\\ Edits: Travis L Scholten, Pedro Rivero}
 \affiliation{Department of Physics and Astronomy, University of New
 Mexico, Albuquerque, New Mexico 87131-0001, USA}
 	
@@ -388,6 +388,14 @@ Measurement gates are typeset just like ordinary gates, but they typically have 
         \multicolumn{1}{c}{\itshape Example} & \multicolumn{1}{c}{\itshape Command} & \multicolumn{1}{c}{\itshape Example Code }\\ \hline 
         \Qcircuit @C=1em @R=.7em {& \meter}
             & \verb=\meter= & \verb=\meter=\\
+        \Qcircuit @C=1em @R=.7em {& \paulimeter{P}}
+            & \verb=\paulimeter= & \verb=\paulimeter{P}=\\
+        \Qcircuit @C=1em @R=.7em {& \xmeter}
+            & \verb=\xmeter= & \verb=\xmeter=\\
+        \Qcircuit @C=1em @R=.7em {& \ymeter}
+            & \verb=\ymeter= & \verb=\ymeter=\\
+        \Qcircuit @C=1em @R=.7em {& \zmeter}
+            & \verb=\zmeter= & \verb=\zmeter=\\
         \Qcircuit @C=1em @R=.7em {& \measure{\mbox{Basis}}}
             & \verb=\measure = & \verb=\measure{\mbox{Basis}}=\\
         \Qcircuit @C=1em @R=.7em {& \measuretab{M_{ijk}}} \hspace{.5em}
@@ -746,8 +754,6 @@ The third QCD depicts quantum error correction on the bit flip code.  It was typ
     \control \cw \cwx
 }
 \end{verbatim}}
-
-\pagebreak
 
 \section{Table of Commands}
 
